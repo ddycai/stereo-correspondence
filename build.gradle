@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+archivesBaseName = 'cs4487'
+version = '1.0-SNAPSHOT' 
+
+repositories {
+    mavenCentral()
+    maven {
+    	url 'http://www.i3s.unice.fr/~hogie/maven_repository/'
+    }
+}
+
+sourceSets {
+    main.java.srcDir "src"
+    test.java.srcDir "test"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.test.StereoImage'
+    }
+}
+
+dependencies {
+	compile 'org.jgrapht:jgrapht-core:0.9.0'	
+	compile 'grph:grph:1.6.29'
+	testCompile 'junit:junit:4.12'
+} 
